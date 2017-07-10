@@ -1,0 +1,4 @@
+{
+	"broker": "140.119.19.110",
+	"sub_topic": ["topic1", "topic2"]
+}
