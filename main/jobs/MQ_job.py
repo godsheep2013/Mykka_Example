@@ -9,13 +9,12 @@ import pykka
 from celery import Celery
 
 class MQ_job(pykka.ThreadingActor):
-    def __init__(self,key):
+    def __init__(self):
         super(MQ_job, self).__init__()
+        print("MQ_job Initiated!")
         self.broker = ""
         self.topics = ""
-        if key:
-            print("MQ_job Initiated!")
-            self.MQ_connection()
+        self.MQ_connection()
     
     def MQ_connection(self):
         #read config & celery connection

@@ -18,13 +18,11 @@ class JobMananger(pykka.ThreadingActor):
     def __init__(self):
         super(JobMananger, self).__init__()
         self.jobs = []
-        self.key = 'True'
 
-        if key:
-            print("JobMananger Initiated!")
-            self.loadConfig()
-            self.createJobs()
-            #self.killAll()
+        print("JobMananger Initiated!")
+        self.loadConfig()
+        self.createJobs()
+        #self.killAll()
             
     def loadConfig(self):
         rf = open('../resources/jobConfig.json','r').read()
@@ -34,8 +32,7 @@ class JobMananger(pykka.ThreadingActor):
         
     def createJobs(self):
         for job in self.jobs:
-            print(str(job)+".start(key=%s)" % self.key)
-            creation = eval(str(job)+".start(key=%s)" % self.key)
+            creation = eval(str(job)+".start()")
             
     def killAll(self):
         ActorSystem.stop_all()
